@@ -27,9 +27,9 @@ def generate_training_set( _input, gt,
     ### read in kwargs
     if down_shape != -1:
         ### reshape input and ground truth
-        _input = [i.astype(np.float) for i in _input]
+        _input = [i.astype(np.float64) for i in _input]
         _input = [ transform.resize(i, (int(i.shape[0]*down_shape),int(i.shape[1]*down_shape)) , preserve_range=True) for i in _input ]
-        gt = [i.astype(np.float) for i in gt]
+        gt = [i.astype(np.float64) for i in gt]
         gt = [ transform.resize(i, (int(i.shape[0]*down_shape),int(i.shape[1]*down_shape)), order=0, preserve_range=False) for i in gt ]
     shapes = [i.shape for i in _input]
 
